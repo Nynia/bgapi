@@ -1,8 +1,14 @@
-### 启动方法
+### 使用方法
+1. 安装virtualenv
 ```
-python manage.py runserver
+virtualenv venv
 ```
-> ip和port可配置
+2. 安装依赖包
+```
+source venv/bin/activate (windows不一样)
+pip install -r requirements.txt
+```
+> 如果用到MySQL，Mysqldb需要另外安装，安装方法见另外文档
 
 ### 多数据库配置
 1. 在config中添加BINDS
@@ -22,9 +28,14 @@ class User(db.Model):
 ```
 3. Migrate配置
 ```
-python manage.py db init --multidb
+python manage.py db init --multidb (多个数据库)
 python manage.py db migrate
 python manage.py db upgrade
 ```
 > tips 可重写upgrade和downgrade方法
 
+### 启动方法
+```
+python manage.py runserver
+```
+> ip和port可配置

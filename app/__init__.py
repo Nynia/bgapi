@@ -23,7 +23,7 @@ def create_app(config_name):
         '%(asctime)s %(levelname)-8s: %(message)s')
 
     # 文件日志
-    file_handler = logging.FileHandler("havefun.log")
+    file_handler = logging.FileHandler("log.log")
     file_handler.setFormatter(formatter)
 
     # 控制台日志
