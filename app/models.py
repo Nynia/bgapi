@@ -113,3 +113,43 @@ class ProductInfo(db.Model):
 
     def __repr__(self):
         return '<ProductInfo %r>' % self.product_name
+
+
+class FocusedSpInfo(db.Model):
+    __bind_key__ = 'ora11g'
+    __tablename__ = 'focused_sp_info'
+
+    spid = db.Column(db.String(10), primary_key=True)
+    spname = db.Column(db.String(100))
+    accessno = db.Column(db.String(20))
+
+    def to_json(self):
+        return {
+            'spid': self.spid,
+            'spname': self.spname,
+            'accessno': self.accessno
+        }
+
+    def __repr__(self):
+        return '<FocusedSpInfo %r>' % self.spname
+
+
+class FocusedProductInfo(db.Model):
+    __bind_key__ = 'ora11g'
+    __tablename__ = 'focused_product_info'
+
+    serviceid = db.Column(db.String(30), primary_key=True)
+    servicename = db.Column(db.String(100))
+    spid = db.Column(db.String(10))
+    orderflag = db.Column(db.String(1))
+
+    def to_json(self):
+        return {
+            'serviceid': self.serviceid,
+            'servicename': self.servicename,
+            'spid': self.spid,
+            'orderflag': self.orderflag
+        }
+
+    def __repr__(self):
+        return '<FocusedSpInfo %r>' % self.servicename

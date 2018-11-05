@@ -17,16 +17,22 @@ class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@127.0.0.1/dcn'
     SQLALCHEMY_BINDS = {
-        'ismp': 'mysql://root:admin@127.0.0.1/ismp'
+        'ismp': 'mysql://root:admin@127.0.0.1/ismp',
+        'ora11g': 'mysql://root:admin@127.0.0.1/ora11g'
     }
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@192.168.114.139/havefun'
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:admin@192.168.127.56/dcn'
+    SQLALCHEMY_BINDS = {
+        'ismp': 'mysql://root:admin@127.0.0.1/ismp',
+        'ora11g': 'mysql://root:admin@192.168.127.56/ora11g'
+    }
 
 
 config = {
     'testing': TestingConfig,
     'production': ProductionConfig,
-    'default': TestingConfig
+    'default': ProductionConfig
 }
