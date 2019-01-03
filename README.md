@@ -39,3 +39,6 @@ python manage.py db upgrade
 python manage.py runserver
 ```
 > ip和port可配置
+
+### 跨域问题
+http://www.cnblogs.com/cwp-bg/p/9256892.html

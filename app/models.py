@@ -1,3 +1,4 @@
+# -*-coding:utf-8-*-
 from app import db
 
 
@@ -52,15 +53,13 @@ class CpInfo(db.Model):
     name = db.Column(db.String(50))
     level = db.Column(db.Integer)
     secret = db.Column(db.String(20))
-    ip = db.Column(db.String(160))
+    #ip = db.Column(db.String(160))
 
     def to_json(self):
         return {
             'id': self.id,
             'name': self.name,
             'level': self.level,
-            'secret': self.secret,
-            'ip': self.ip
         }
 
     def __repr__(self):
@@ -75,15 +74,19 @@ class ChargePoint(db.Model):
     pid = db.Column(db.String(30))
     secret = db.Column(db.String(30))
     description = db.Column(db.String(200))
-    order_times_limit_id = db.Column(db.Integer)
+    day_limit = db.Column(db.Integer)
+    week_limit = db.Column(db.Integer)
+    month_limit = db.Column(db.Integer)
 
     def to_json(self):
         return {
             'id': self.id,
             'pid': self.pid,
             'secret': self.secret,
-            'description': self.description,
-            'order_times_limit_id': self.order_times_limit_id
+            'day_limit': self.day_limit,
+            'week_limit': self.week_limit,
+            'month_limit': self.month_limit,
+            'description': self.description
         }
 
     def __repr__(self):

@@ -2,7 +2,6 @@ from app.models import FocusedSpInfo, FocusedProductInfo
 from flask import jsonify, request
 from app import db
 from . import api
-import re
 
 
 @api.route('/focused_product_infos', methods=['GET'])
@@ -11,7 +10,7 @@ def get_all_product_infos():
 
 
 @api.route('/focused_product_info', methods=['GET'])
-def get_product_info():
+def get_focused_product_info():
     spid = request.args.get('spid')
     serviceid = request.args.get('serviceid')
 
@@ -51,7 +50,7 @@ def get_product_info():
 
 
 @api.route('/focused_product_info', methods=['POST'])
-def add_product_info():
+def add_focused_product_info():
     serviceid = request.form.get('serviceid')
     servicename = request.form.get('servicename')
     spid = request.form.get('spid')
@@ -93,7 +92,7 @@ def add_product_info():
 
 
 @api.route('/focused_product_info', methods=['DELETE'])
-def delete_product_info():
+def delete_focused_product_info():
     serviceid = request.form.get('serviceid')
     spid = request.form.get('spid')
     if serviceid:

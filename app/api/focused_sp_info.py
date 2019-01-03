@@ -2,7 +2,6 @@ from app.models import FocusedSpInfo
 from flask import jsonify, request
 from app import db
 from . import api
-import re
 
 
 @api.route('/focused_sp_infos', methods=['GET'])
